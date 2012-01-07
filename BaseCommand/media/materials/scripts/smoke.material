@@ -1,0 +1,38 @@
+
+material Examples/Smoke
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+			scene_blend alpha_blend 
+			depth_write off			
+
+			texture_unit
+			{
+				texture fastsmoke_64x64_128f.dds
+				tex_address_mode clamp
+			}
+		}
+	}
+}
+
+material Examples/Explosion
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+			scene_blend add
+			depth_write off
+
+			texture_unit
+			{
+				texture fireani_32x32_128f.dds
+				tex_address_mode clamp
+			}
+		}
+	}
+}

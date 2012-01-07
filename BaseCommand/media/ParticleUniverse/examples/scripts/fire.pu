@@ -1,0 +1,105 @@
+// ---------------------------------------------- Begin: Fire system ----------------------------------------------
+// This particle system demonstrates the combination of 2 combined particle techniques.
+// ---------------------------------------------------------------------------------------------------------------
+system fireSystem
+{
+    // ---------------- Fire ----------------
+    technique fireTechnique
+    {
+        material                            ParticleUniverse/Fire
+        default_particle_width              40
+        default_particle_height             40
+        visual_particle_quota               10000
+
+        renderer Billboard
+        {
+            // Put the fire in front of the smoke
+            render_queue_group              80
+        }
+
+        // Emission of fire particles
+        emitter                             Point fireEmitter
+        {
+            emission_rate                   dyn_random
+            {
+				min			10
+				max			20
+			}
+            angle                           30
+            direction                       0 1 0
+            velocity                        dyn_random
+            {
+                min                         60
+                max                         80
+            }
+            time_to_live                    dyn_random
+            {
+                min                         3
+                max                         6
+            }
+            duration	5
+        }
+        
+        // Use a gravity affector to attract the particles a bit
+        affector                            Gravity
+        {
+            position                        0 200 0
+            gravity                         1000
+        }
+
+        affector                            Scale
+        {
+            xyz_scale                       -5
+        }
+
+        affector                            Colour
+        {
+            colour_aff_time_colour          0 1 1 1
+            colour_aff_time_colour          1 0 0 0
+        }
+    }
+
+    // ---------------- Smoke ----------------
+    technique smokeTechnique
+    {
+        material                            ParticleUniverse/Smoke
+        default_particle_width              30
+        default_particle_height             30
+        use_alias                           $defaultBillboardRenderer
+
+        // Emission of smoke particles
+        emitter                             Point
+        {
+            emission_rate                   dyn_random
+            {
+				min			10
+				max			20
+			}
+            angle                           20
+            direction                       0 1 0
+            velocity                        dyn_random
+            {
+                min                         60
+                max                         80
+            }
+            time_to_live                    dyn_random
+            {
+                min                         5
+                max                         7
+            }
+            duration	5
+        }       
+
+        affector                            Scale
+        {
+            xyz_scale                       40
+        }
+        
+        affector                            Colour
+        {
+            colour_aff_time_colour          0 1 0.9 0 1
+            colour_aff_time_colour          1 1 1 1 0
+        }
+    }
+}
+// ----------------------------------------------- End: Fire system ----------------------------------------------

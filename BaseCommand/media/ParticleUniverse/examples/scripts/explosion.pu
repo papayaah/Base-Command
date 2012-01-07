@@ -1,0 +1,191 @@
+// ------------------------------------------- Begin: Explosion system -------------------------------------------
+// The explosion system is an example of a complex particle system.
+// Note, that the Projectiles and debris are not emitted immediately, but only after some time to make the effect
+// look a bit more realistic.
+// ---------------------------------------------------------------------------------------------------------------
+system explosionSystem
+{    
+    // Explosion 
+    technique explosion
+    {
+        use_alias                        $defaultBillboardRenderer
+        material                         ParticleUniverse/Explosion
+        default_particle_width           250
+        default_particle_height          250
+        visual_particle_quota            500
+        
+        renderer Billboard
+        {
+            texture_coords_rows               8
+            texture_coords_columns            8
+        }
+
+        emitter                         Point ExplosionEmitter
+        {
+            emission_rate                1
+            direction                    0 0 0             
+            force_emission				 true
+            time_to_live                 1
+        }        
+
+        affector                              TextureAnimator
+        {
+            texture_coords_start              0
+            texture_coords_end                63
+        }
+        // Change the colour of the burst
+        affector                         Colour
+        {
+           	colour_aff_time_colour 0 1 1 1 1	
+            colour_aff_time_colour 1 0 0 0 0
+            colour_operation multiply
+        }      
+    }  
+    
+    // Explosion flash
+    technique flash
+    {
+        use_alias                        $defaultBillboardRenderer
+        material                         ParticleUniverse/ExplosionFlash
+        default_particle_width           250
+        default_particle_height          250
+        
+        // Emit one and only a short time 
+        emitter                         Point ExplosionEmitter
+        {
+            emission_rate                1
+            direction                    0 0 0              
+            force_emission				 true
+            time_to_live                 0.5 
+        }     
+        // Quickly expand it
+        affector                             Scale
+        {
+            xyz_scale                        500
+        }   
+       
+        // Fade the explosion flash
+        affector                         Colour
+        {
+           	colour_aff_time_colour 0 1 1 1 1	
+            colour_aff_time_colour 1 0 0 0 0
+            colour_operation multiply
+        }
+    }     
+    // --------------- Debris ---------------
+    technique debris
+    {
+        material                         ParticleUniverse/Debris
+        visual_particle_quota            500
+        renderer                         Billboard
+        {
+            billboard_type               oriented_self
+        }
+        
+        // Emit the debris
+        emitter                          Point    DebrisEmitter
+        {
+
+            emission_rate                100
+          force_emission				 true
+            direction                    0 -1 0
+            angle                        360
+            time_to_live                 5
+            particle_height              dyn_random
+            {
+                min                      2
+                max                      20
+            }
+            particle_width               3
+            velocity                     dyn_random
+            {
+                min                      100
+                max                      180
+            }
+        }
+        
+        // Start with a normal coloured texture and fade out
+        affector                         Colour
+        {
+            colour_aff_time_colour       0 1 1 1
+            colour_aff_time_colour       1 0 0 0
+        }
+        
+        // Apply some kind of gravity
+        affector                         LinearForce
+        {
+            force_aff_vector             0 -100 0
+        }
+        
+
+    } 
+
+    // Smoke 
+    technique smoke
+    {
+        use_alias                        $defaultBillboardRenderer
+        material                              ParticleUniverse/Interpolate
+        default_particle_width           10
+        default_particle_height          10
+        visual_particle_quota            500
+        
+        renderer Billboard
+        {
+            texture_coords_rows               8
+            texture_coords_columns            16
+        }
+
+        emitter                          SphereSurface    SmokeEmitter
+        {
+            emission_rate                5
+            auto_direction               true
+            sphere_surface_em_radius     0        
+        force_emission				 true
+            velocity                          dyn_random
+            {
+                min                           10
+                max                           60
+            }
+            time_to_live                      dyn_random
+            {
+                min                           2
+                max                           5
+            }
+        }
+        
+        affector                              Scale
+        {
+            xyz_scale                         75
+        }
+        affector                              TextureAnimator
+        {
+            texture_coords_start              0
+            texture_coords_end                127
+            texture_animation_type            loop
+            texture_start_random               true
+        }
+        // Change the colour of the burst
+        affector                         Colour
+        {
+           	colour_aff_time_colour 0 1 1 1 1	
+            colour_aff_time_colour 1 0 0 0 0
+            colour_operation multiply
+        }
+
+        // After 0.7 seconds, the emitters stops
+        observer                         OnTime
+        {
+            on_time                      greater_than 0.7
+            since_start_system           true
+            handler                      DoEnableComponent
+            {
+                enable_component         emitter_component    SmokeEmitter    false
+            }
+        } 
+    }  
+
+    
+    
+}
+// ---------------------------------------------- End: Explosion system ----------------------------------------------
+

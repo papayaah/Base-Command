@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!-- Layout file from CEGUI Demo8 -->
+<GUILayout>
+  <Window Type="DefaultGUISheet" Name="MainMenu/Root">
+    <Property Name="UnifiedMaxSize" Value="{{1,0},{2,0}}" />
+    <Property Name="UnifiedSize" Value="{{1,0},{2,0}}"  />
+
+    <Window Type="TaharezLook/FrameWindow" Name="MainMenu/FrameWindow1">
+      <Property Name="UnifiedPosition" Value="{{0.1,0},{0.03,0}}"  />      
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.4,0}}"  />
+      <Property Name="Text" Value="Leaderboards" />
+
+      <Window Type="TaharezLook/Listbox" Name="MainMenu/LeaderboardsListbox">
+        <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}"  />        
+        <Property Name="UnifiedSize" Value="{{0.9,0},{0.8,0}}"  />
+      </Window>
+    </Window>
+      
+      <Window Type="TaharezLook/FrameWindow" Name="MainMenu/FrameWindow2">
+        <Property Name="UnifiedPosition" Value="{{0.5,0},{0.03,0}}"  />        
+        <Property Name="UnifiedSize" Value="{{0.4,0},{0.2,0}}"  />
+        <Property Name="Text" Value="Game Instructions" />
+
+       <Window Type="TaharezLook/StaticText" Name="MainMenu/InstructionDetailsStaticText">
+          <Property Name="UnifiedPosition" Value="{{0.05,0},{0.15,0}}"  />      
+          <Property Name="UnifiedSize" Value="{{0.9,0},{0.4,0}}"  />
+          <Property Name="HorzFormatting" Value="WordWrapCentred" />
+          <Property Name="Text" Value="Welcome to Base Command. Press left mouse button to shoot. The game is over once all your houses are destroyed. Kill as many fighter planes and bombers as you can. Good luck commander!" />
+        </Window>
+
+        <Window Type="TaharezLook/Button" Name="MainMenu/StartButton">
+          <Property Name="UnifiedPosition" Value="{{0.05,0},{0.6,0}}"  />
+          <Property Name="UnifiedSize" Value="{{0.9,0},{0.1,0}}"  />
+          <Property Name="Text" Value="Start Game" />
+        </Window>
+        <Window Type="TaharezLook/Button" Name="MainMenu/QuitButton">
+          <Property Name="UnifiedPosition" Value="{{0.05,0},{0.75,0}}"  />
+          <Property Name="UnifiedSize" Value="{{0.9,0},{0.1,0}}"  />
+          <Property Name="Text" Value="Quit Game" />
+        </Window>
+      </Window>
+      <!-- FrameWindow -->
+    </Window> <!-- Root -->
+
+</GUILayout>

@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BaseCommand", "BaseCommand\BaseCommand.vcproj", "{8B07A020-123A-483F-B8B4-704C1C5581F0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2E30F488-61FD-455B-BE50-9AD347C527A6} = {2E30F488-61FD-455B-BE50-9AD347C527A6}
+		{A46CAB97-7D11-2041-998E-0040A09A0D47} = {A46CAB97-7D11-2041-998E-0040A09A0D47}
+		{81B75BE3-29D7-40F4-B96D-035BC637B316} = {81B75BE3-29D7-40F4-B96D-035BC637B316}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PagedGeometry", "BaseCommand\lib\pagedgeometry\PagedGeometryLib.vcproj", "{81B75BE3-29D7-40F4-B96D-035BC637B316}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EditableTerrainManager", "BaseCommand\lib\etm-2.3.1\EditableTerrain.vcproj", "{2E30F488-61FD-455B-BE50-9AD347C527A6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Caelum", "BaseCommand\lib\caelum\Caelum_vs9.vcproj", "{A46CAB97-7D11-2041-998E-0040A09A0D47}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B07A020-123A-483F-B8B4-704C1C5581F0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8B07A020-123A-483F-B8B4-704C1C5581F0}.Debug|Win32.Build.0 = Debug|Win32
+		{8B07A020-123A-483F-B8B4-704C1C5581F0}.Release|Win32.ActiveCfg = Release|Win32
+		{8B07A020-123A-483F-B8B4-704C1C5581F0}.Release|Win32.Build.0 = Release|Win32
+		{81B75BE3-29D7-40F4-B96D-035BC637B316}.Debug|Win32.ActiveCfg = Debug|Win32
+		{81B75BE3-29D7-40F4-B96D-035BC637B316}.Debug|Win32.Build.0 = Debug|Win32
+		{81B75BE3-29D7-40F4-B96D-035BC637B316}.Release|Win32.ActiveCfg = Release|Win32
+		{81B75BE3-29D7-40F4-B96D-035BC637B316}.Release|Win32.Build.0 = Release|Win32
+		{2E30F488-61FD-455B-BE50-9AD347C527A6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2E30F488-61FD-455B-BE50-9AD347C527A6}.Debug|Win32.Build.0 = Debug|Win32
+		{2E30F488-61FD-455B-BE50-9AD347C527A6}.Release|Win32.ActiveCfg = Release|Win32
+		{2E30F488-61FD-455B-BE50-9AD347C527A6}.Release|Win32.Build.0 = Release|Win32
+		{A46CAB97-7D11-2041-998E-0040A09A0D47}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A46CAB97-7D11-2041-998E-0040A09A0D47}.Debug|Win32.Build.0 = Debug|Win32
+		{A46CAB97-7D11-2041-998E-0040A09A0D47}.Release|Win32.ActiveCfg = Release|Win32
+		{A46CAB97-7D11-2041-998E-0040A09A0D47}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

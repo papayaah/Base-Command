@@ -1,0 +1,20 @@
+material DestructibleHouseWinDoor
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.5 0.5 0.5
+			diffuse 1 1 1
+
+			texture_unit
+			{
+				texture DestructibleHouseColor.dds
+			}
+			texture_unit
+			{
+				texture DestructibleHouseDetail.dds
+			}
+		}
+	}
+} 

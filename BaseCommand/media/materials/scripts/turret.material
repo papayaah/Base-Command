@@ -1,0 +1,16 @@
+material turret/base
+{
+	technique
+	{
+		ambient 0.5 0.5 0.5
+		diffuse 1 1 1
+		pass
+		{
+
+			texture_unit
+			{
+				texture turret.dds
+			}
+		}
+	}
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!-- Layout file from CEGUI Demo8 -->
+<GUILayout>
+  <Window Type="DefaultGUISheet" Name="GameOver/Root">
+
+    <Property Name="UnifiedMaxSize" Value="{{1,0},{2,0}}" />
+    <Property Name="UnifiedSize" Value="{{1,0},{2,0}}"  />
+
+    <Window Type="TaharezLook/FrameWindow" Name="GameOver/FrameWindow">
+      <Property Name="UnifiedPosition" Value="{{0.01,0},{0.01,0}}"  />      
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.2,0}}"  />
+      <Property Name="Text" Value="Game Over" />
+
+      <Window Type="TaharezLook/StaticText" Name="GameOver/Info">
+        <Property Name="UnifiedPosition" Value="{{0.05,0},{0.15,0}}"  />        
+        <Property Name="UnifiedSize" Value="{{0.9,0},{0.4,0}}"  />
+        <Property Name="HorzFormatting" Value="WordWrapCentred" />
+        <Property Name="Text" Value="Well Done. You have survived for #.## minutes and have # kills with an accuracy rating of #%. Please enter your OGRE community nick name to submit your score." />
+      </Window>
+
+      <Window Type="TaharezLook/Editbox" Name="GameOver/NameEditbox">
+        <Property Name="UnifiedPosition" Value="{{0.05,0},{0.6,0}}"  />        
+        <Property Name="UnifiedSize" Value="{{0.5,0},{0.1,0}}"  />
+      </Window>
+
+      <Window Type="TaharezLook/Button" Name="GameOver/SendButton">
+        <Property Name="UnifiedPosition" Value="{{0.6,0},{0.6,0}}"  />        
+        <Property Name="UnifiedSize" Value="{{0.35,0},{0.1,0}}"  />
+        <Property Name="Text" Value="Submit Score" />
+      </Window>
+
+      <Window Type="TaharezLook/Button" Name="GameOver/ReturnButton">
+        <Property Name="UnifiedPosition" Value="{{0.25,0},{0.75,0}}"  />        
+        <Property Name="UnifiedSize" Value="{{0.5,0},{0.1,0}}"  />
+        <Property Name="Text" Value="Return to Main Menu" />
+      </Window>
+
+    </Window><!-- FrameWindow -->    
+  </Window> <!-- Root -->
+
+</GUILayout>
